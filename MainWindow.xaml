@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Lab1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DatePicker" Height="180" Width="800">
+    <StackPanel Margin="20">
+        <Label>Select your birthday:</Label>
+        <DatePicker x:Name ="datePicker" SelectedDateFormat="Short" IsTodayHighlighted ="True"
+                    SelectedDate="{x:Static sys:DateTime.Now}" ></DatePicker>
+        <Button Margin="20" x:Name="btn1" Click="btn1_Click">Enter</Button>
+    </StackPanel>
 </Window>

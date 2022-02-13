@@ -23,6 +23,25 @@ namespace Lab1
         public MainWindow()
         {
             InitializeComponent();
+         
+
+           
+        }
+        private void btn1_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedDate = datePicker.SelectedDate;
+
+            if (datePicker.SelectedDate == null) return;
+            DateTime dateValue = (DateTime)selectedDate;
+
+            var age = GetAge(dateValue);
+
+            if (!CheckAge(age))
+            {
+                MessageBoxResult result = MessageBox.Show("Entered date cannot be a birthday.","ERROR");
+            }
+
+
         }
 
         public int GetAge(DateTime birthDate)
@@ -31,8 +50,7 @@ namespace Lab1
 
             int age = currentDate.Year - birthDate.Year;
 
-            if (currentDate.Month < birthDate.Month || 
-                (currentDate.Month == birthDate.Month && currentDate.Day < birthDate.Day))
+            if (birthDate > currentDate.AddYears(-age))
                 age--;
 
             return age;
@@ -51,9 +69,84 @@ namespace Lab1
             return false;
         }
 
-        public string GetWesternZodiac()
+        public string GetWesternZodiac(DateTime birthDate)
         {
-            return "";
+            string[] zodiacSigns = {"Aries", "Taurus", "Gemini", "Cancer","Leo", "Virgo", "Libra",
+                                     "Scorpio", "Sagittarius","Capricorn", "Aquarius", "Pisces"};
+
+            var birthDay = birthDate.Day;
+            var birthMonth = birthDate.Month;
+
+            string zodiac = "";
+
+            switch (birthMonth)
+            {
+                case 1:
+                    if (birthDay >= 1 && birthDay <= 19) zodiac = zodiacSigns[9];
+                    else zodiac = zodiacSigns[10];
+                    break;
+                case 2:
+                    if (birthDay >= 1 && birthDay < 19) zodiac = zodiacSigns[10];
+                    else zodiac = zodiacSigns[11];
+                    break;
+                case 3:
+                    if (birthDay >= 1 && birthDay <= 20) zodiac = zodiacSigns[11];
+                    else zodiac = zodiacSigns[0];
+                    break;
+                case 4:
+                    if (birthDay >= 1 && birthDay < 20) zodiac = zodiacSigns[0];
+                    else zodiac = zodiacSigns[1];
+                    break;
+                case 5:
+                    if (birthDay >= 1 && birthDay <= 20) zodiac = zodiacSigns[1];
+                    else zodiac = zodiacSigns[2];
+                    break;
+                case 6:
+                    if (birthDay >= 1 && birthDay <= 20) zodiac = zodiacSigns[2];
+                    else zodiac = zodiacSigns[3];
+                    break;
+                case 7:
+                    if (birthDay >= 1 && birthDay <= 22) zodiac = zodiacSigns[3];
+                    else zodiac = zodiacSigns[4];
+                    break;
+                case 8:
+                    if (birthDay >= 1 && birthDay <= 22) zodiac = zodiacSigns[4];
+                    else zodiac = zodiacSigns[5];
+                    break;
+                case 9:
+                    if (birthDay >= 1 && birthDay <= 22) zodiac = zodiacSigns[5];
+                    else zodiac = zodiacSigns[6];
+                    break;
+                case 10:
+                    if (birthDay >= 1 && birthDay <= 22) zodiac = zodiacSigns[6];
+                    else zodiac = zodiacSigns[7];
+                    break;
+                case 11:
+                    if (birthDay >= 1 && birthDay <= 21) zodiac = zodiacSigns[7];
+                    else zodiac = zodiacSigns[8];
+                    break;
+                case 12:
+                    if (birthDay >= 1 && birthDay <= 21) zodiac = zodiacSigns[8];
+                    else zodiac = zodiacSigns[9];
+                    break;
+                default:
+                    break;
+            }
+            return zodiac;
+        }
+
+        public string GetChineseZodiac(DateTime birthDate)
+        {
+
+            string[] zodiacSigns = {"Monkey", "Rooster", "Dog", "Pig","Rat", "Ox", "Tiger",
+                                     "Hare", "Dragon","Snake", "Horse", "Sheep"};
+
+            var birthYear = birthDate.Year;
+
+            int N = birthYear % 12;
+            string zodiac = zodiacSigns[N];
+
+            return zodiac;
         }
     }
 }
