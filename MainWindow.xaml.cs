@@ -38,7 +38,33 @@ namespace Lab1
 
             if (!CheckAge(age))
             {
-                MessageBoxResult result = MessageBox.Show("Entered date cannot be a birthday.","ERROR");
+                MessageBoxResult displayError = MessageBox.Show("Entered date cannot be a birthday.","ERROR");
+            }
+            else
+            {
+                MessageWindow ageWindow = new MessageWindow();
+                ageWindow.tb1.Text += $" Your age: {age.ToString()}"; 
+                if(CheckBirthday(dateValue)) ageWindow.tb1.Text += "\n Today is your b-day!";
+               
+                ageWindow.Show();
+
+                MessageWindow westernZodiacWindow = new MessageWindow();
+                westernZodiacWindow.tb1.Text += $" Your western zodiac sign:\n {GetWesternZodiac(dateValue)}";
+                westernZodiacWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+                westernZodiacWindow.Top = 300;
+                westernZodiacWindow.Left = 420;
+
+                westernZodiacWindow.Show();
+
+
+                MessageWindow chineseZodiacWindow = new MessageWindow();
+                chineseZodiacWindow.tb1.Text += $" Your chinese zodiac sign:\n {GetChineseZodiac(dateValue)}";
+                chineseZodiacWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+                chineseZodiacWindow.Top = 300;
+                chineseZodiacWindow.Left = 800;
+
+                chineseZodiacWindow.Show();
+
             }
 
 

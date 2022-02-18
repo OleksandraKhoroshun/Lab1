@@ -6,11 +6,13 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Lab1"
         mc:Ignorable="d"
-        Title="DatePicker" Height="180" Width="800">
-    <StackPanel Margin="20">
+        Title="DatePicker" Height="180" Width="800" WindowStartupLocation="CenterScreen">
+    <StackPanel x:Name="sPanel" Margin="20">
         <Label>Select your birthday:</Label>
         <DatePicker x:Name ="datePicker" SelectedDateFormat="Short" IsTodayHighlighted ="True"
                     SelectedDate="{x:Static sys:DateTime.Now}" ></DatePicker>
         <Button Margin="20" x:Name="btn1" Click="btn1_Click">Enter</Button>
+
     </StackPanel>
+    
 </Window>
