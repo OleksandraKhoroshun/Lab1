@@ -11,12 +11,14 @@ namespace Lab1
         private DateTime birthDate;
         private int age;
 
+        //constructor
         public Statistics(DateTime birthDate)
         {
             this.birthDate = birthDate;
             this.age = GetAge();
 
         }
+        //calculating age from birth date
         public int GetAge()
         {
             var currentDate = DateTime.Today;
@@ -29,12 +31,14 @@ namespace Lab1
             return age;
         }
 
+        //checking if age is valid
         public bool CheckAge()
         {
             if (age < 0 || age > 135) return false;
             return true;
         }
 
+        //checking if today is a birthday
         public bool CheckBirthday()
         {
             var currentDate = DateTime.Today;
@@ -42,6 +46,7 @@ namespace Lab1
             return false;
         }
 
+        //getting western zodiac sign
         public string GetWesternZodiac()
         {
             string[] zodiacSigns = {"Aries", "Taurus", "Gemini", "Cancer","Leo", "Virgo", "Libra",
@@ -108,6 +113,7 @@ namespace Lab1
             return zodiac;
         }
 
+        //calculating chinese zodiac sign
         public string GetChineseZodiac()
         {
 

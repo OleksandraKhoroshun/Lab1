@@ -24,9 +24,8 @@ namespace Lab1
         {
             InitializeComponent();
 
-
-
         }
+        //button click logic
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
             var selectedDate = datePicker.SelectedDate;
@@ -43,10 +42,11 @@ namespace Lab1
             }
             else
             {
-                MessageWindow ageWindow = new MessageWindow();
-                ageWindow.tb1.Text += $" Your age: {age.ToString()}";
-                if (statistics.CheckBirthday()) ageWindow.tb1.Text += "\n Today is your b-day!";
 
+                MessageWindow ageWindow = new MessageWindow();
+                ageWindow.tb1.Text += $" Your age: {age.ToString()}.";
+                if (statistics.CheckBirthday()) ageWindow.tb1.Text += " Today is your b-day!";
+               
                 ageWindow.Show();
 
                 MessageWindow westernZodiacWindow = new MessageWindow();

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MessageWindow" Height="110" Width="200" WindowStartupLocation="CenterScreen">
     <StackPanel x:Name="sPanel" Margin="5">
-        <TextBlock x:Name="tb1" VerticalAlignment="Center" Visibility="Visible"/>
-        <Button Margin="10" x:Name="btn2" FontSize="8" Height="15" Width="30" Click="btn2_Click">ok</Button>
+        <TextBlock x:Name="tb1"  VerticalAlignment="Center" Visibility="Visible"/>
+        <Button Margin="10" x:Name="btn2" FontSize="8" Height="15"  Width="30" Click="btn2_Click" Content="ok" />
     </StackPanel>
 </Window>
